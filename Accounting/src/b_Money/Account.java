@@ -34,7 +34,7 @@ public class Account {
 	 * @param id Id of timed payment to remove
 	 */
 	public void removeTimedPayment(String id) {
-		if (timedPaymentExists(id)) {									// There was no check for TimedPayment existance
+		if (timedPaymentExists(id)) {								// There was no check for TimedPayment existance
 			timedpayments.remove(id);
 		} else {
 			System.err.println("Timed payment already exists");

@@ -133,7 +133,7 @@ public class Bank {
 	 * @throws AccountDoesNotExistException If one of the accounts do not exist
 	 */
 	public void transfer(String fromaccount, String toaccount, Money amount) throws AccountDoesNotExistException {
-		transfer(fromaccount, this, toaccount, amount);									// It was transfer(from, this, from, amount), so was  it transfering between same account
+		transfer(fromaccount, this, toaccount, amount);									// It was transfer(from, this, from, amount), so was  transfering between same account
 	}
 
 	/**
