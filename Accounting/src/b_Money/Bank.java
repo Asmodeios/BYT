@@ -54,7 +54,7 @@ public class Bank {
 	 * @throws AccountDoesNotExistException If the account does not exist
 	 */
 	public void deposit(String accountid, Money money) throws AccountDoesNotExistException {
-		if (!existsAccount(accountid)) {
+		if (!existsAccount(accountid)) {								// There was no negation for boolean expression
 			throw new AccountDoesNotExistException();
 		}
 		else {
@@ -75,7 +75,7 @@ public class Bank {
 		}
 		else {
 			Account account = accountlist.get(accountid);
-			account.withdraw(money);
+			account.withdraw(money);												// It was depositing instead of withdrawing
 		}
 	}
 	
@@ -133,7 +133,7 @@ public class Bank {
 	 * @throws AccountDoesNotExistException If one of the accounts do not exist
 	 */
 	public void transfer(String fromaccount, String toaccount, Money amount) throws AccountDoesNotExistException {
-		transfer(fromaccount, this, toaccount, amount);
+		transfer(fromaccount, this, toaccount, amount);									// It was transfer(from, this, from, amount), so was transfering between same account
 	}
 
 	/**
@@ -145,10 +145,15 @@ public class Bank {
 	 * @param amount Amount of Money to transfer each payment
 	 * @param tobank Bank where receiving account resides
 	 * @param toaccount Id of receiving account
+	 * @throws AccountDoesNotExistException 
 	 */
-	public void addTimedPayment(String accountid, String payid, Integer interval, Integer next, Money amount, Bank tobank, String toaccount) {
+	public void addTimedPayment(String accountid, String payid, Integer interval, Integer next, Money amount, Bank tobank, String toaccount) throws AccountDoesNotExistException {
+		if (existsAccount("accountid")) {													// There was no check for account existance 
 		Account account = accountlist.get(accountid);
 		account.addTimedPayment(payid, interval, next, amount, tobank, toaccount);
+		} else {
+			throw new AccountDoesNotExistException();
+		}
 	}
 	
 	/**
