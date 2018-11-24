@@ -43,7 +43,7 @@ public class Bank {
 			throw new AccountExistsException();
 		}
 		else {
-			accountlist.put(accountid, new Account("accountid", getCurrency()));      // creating account with currency of this bank
+			accountlist.put(accountid, new Account("accountid", getCurrency()));    // creating account with currency of this bank
 		}
 	}
 	
@@ -54,7 +54,7 @@ public class Bank {
 	 * @throws AccountDoesNotExistException If the account does not exist
 	 */
 	public void deposit(String accountid, Money money) throws AccountDoesNotExistException {
-		if (!existsAccount(accountid)) {								// There was no negation for boolean expression
+		if (!existsAccount(accountid)) {		// There was no negation for boolean expression
 			throw new AccountDoesNotExistException();
 		}
 		else {
@@ -75,7 +75,7 @@ public class Bank {
 		}
 		else {
 			Account account = accountlist.get(accountid);
-			account.withdraw(money);												// It was depositing instead of withdrawing
+			account.withdraw(money);		// It was depositing instead of withdrawing
 		}
 	}
 	
@@ -133,7 +133,7 @@ public class Bank {
 	 * @throws AccountDoesNotExistException If one of the accounts do not exist
 	 */
 	public void transfer(String fromaccount, String toaccount, Money amount) throws AccountDoesNotExistException {
-		transfer(fromaccount, this, toaccount, amount);									// It was transfer(from, this, from, amount), so was  transfering between same account
+		transfer(fromaccount, this, toaccount, amount);		// It was transfer(from, this, from, amount), so was  transfering between same account
 	}
 
 	/**
@@ -148,7 +148,7 @@ public class Bank {
 	 * @throws AccountDoesNotExistException 
 	 */
 	public void addTimedPayment(String accountid, String payid, Integer interval, Integer next, Money amount, Bank tobank, String toaccount) throws AccountDoesNotExistException {
-		if (existsAccount("accountid")) {													// There was no check for account existance 
+		if (existsAccount("accountid")) {			// There was no check for account existance 
 		Account account = accountlist.get(accountid);
 		account.addTimedPayment(payid, interval, next, amount, tobank, toaccount);
 		} else {

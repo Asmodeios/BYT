@@ -34,7 +34,7 @@ public class Account {
 	 * @param id Id of timed payment to remove
 	 */
 	public void removeTimedPayment(String id) {
-		if (timedPaymentExists(id)) {								// There was no check for TimedPayment existance
+		if (timedPaymentExists(id)) {	// There was no check for TimedPayment existance
 			timedpayments.remove(id);
 		} else {
 			System.err.println("Timed payment already exists");
@@ -54,7 +54,7 @@ public class Account {
 	 */
 	public void tick() {
 		for (TimedPayment tp : timedpayments.values()) {
-			tp.tick();										// There were two calls of tick() 
+			tp.tick();		// There were two calls of tick() 
 		}
 	}
 	
