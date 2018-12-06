@@ -148,8 +148,9 @@ public class Bank {
 	 * @throws AccountDoesNotExistException 
 	 */
 	public void addTimedPayment(String accountid, String payid, Integer interval, Integer next, Money amount, Bank tobank, String toaccount) throws AccountDoesNotExistException {
-		if (existsAccount("accountid")) {			// There was no check for account existance 
+		
 		Account account = accountlist.get(accountid);
+		if (account != null) {			
 		account.addTimedPayment(payid, interval, next, amount, tobank, toaccount);
 		} else {
 			throw new AccountDoesNotExistException();
